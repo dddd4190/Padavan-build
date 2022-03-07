@@ -1,4 +1,4 @@
-#修改TNAME: D2 中的K2P为你需要编译的型号，注意名称要与configs/templates/目录下的名字相同
+#修改TNAME: NEWIFID2 中的K2P为你需要编译的型号，注意名称要与configs/templates/目录下的名字相同
 name: Build Padavan
 
 on: 
@@ -38,7 +38,7 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: D2
+        TNAME: NEWIFID2
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
@@ -60,9 +60,9 @@ jobs:
         ######################################################################
         ##科学上网##
         echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y" >> .config #科学上网插件，选择n后全部有关插件都不集成
-        echo "CONFIG_FIRMWARE_INCLUDE_XRAY=n" >> .config #Yxray执行文件 ~4.5M
-        echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=n" >> .config #Yv2ray执行文件
-        echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=y" >> .config #Ytrojan执行文件 ~1.2M
+        echo "CONFIG_FIRMWARE_INCLUDE_XRAY=n" >> .config #yxray执行文件 ~4.5M
+        echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=n" >> .config #yv2ray执行文件
+        echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=y" >> .config #ytrojan执行文件 ~1.2M
         echo "CONFIG_FIRMWARE_INCLUDE_SSOBFS=y" >> .config #simple-obfs混淆插件
         ##科学上网##
 
